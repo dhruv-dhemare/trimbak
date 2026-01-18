@@ -1,1 +1,1 @@
-xyz
+console.log("Backend index.js file loaded");
