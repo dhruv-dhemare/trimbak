@@ -12,10 +12,7 @@ dotenv.config({ path: path.join(__dirname, ".env") });
 
 const router = express.Router();
 
-/**
- * Create email transporter instance
- * Uses environment variables for secure credential management
- */
+
 // const createTransporter = () => {
 //   return nodemailer.createTransport({
 //     service: process.env.EMAIL_SERVICE || "gmail",
@@ -25,8 +22,8 @@ const router = express.Router();
 //     },
 //   });
 // };
-console.log("EMAIL_USER =", process.env.EMAIL_USER);
-console.log("EMAIL_PASSWORD =", process.env.EMAIL_PASSWORD ? "LOADED" : "MISSING");
+// console.log("EMAIL_USER =", process.env.EMAIL_USER);
+// console.log("EMAIL_PASSWORD =", process.env.EMAIL_PASSWORD ? "LOADED" : "MISSING");
 
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
@@ -39,9 +36,7 @@ const transporter = nodemailer.createTransport({
 });
 const createTransporter = () => transporter;
 
-/**
- * Validation middleware for form submission
- */
+
 const validateFormSubmission = [
   body("name")
     .trim()
@@ -62,8 +57,8 @@ const validateFormSubmission = [
     .trim()
     .notEmpty()
     .withMessage("Message is required")
-    .isLength({ min: 10, max: 5000 })
-    .withMessage("Message must be between 10 and 5000 characters"),
+    .isLength({ min: 0, max: 5000 })
+    .withMessage("Message must be between 0 and 5000 characters"),
 ];
 
 /**
@@ -109,7 +104,7 @@ router.post("/form", validateFormSubmission, async (req, res) => {
   try {
     const transporter = createTransporter();
 
-    // Verify transporter configuration
+    
     await transporter.verify();
 
     const mailOptions = {

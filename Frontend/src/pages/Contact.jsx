@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Contact.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -10,6 +10,84 @@ import {
 } from "lucide-react";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phno: "",
+    message: "",
+  });
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null); // null, 'success', 'error'
+  const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+    // Clear error message when user starts typing
+    if (submitStatus === "error") {
+      setSubmitStatus(null);
+      setErrorMessage("");
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setSubmitStatus(null);
+    setErrorMessage("");
+    setSuccessMessage("");
+
+    try {
+      const response = await fetch("http://localhost:3000/api/form", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        // Handle validation or server errors
+        if (data.errors && Array.isArray(data.errors)) {
+          // Extract error messages from validation errors
+          const errorMessages = data.errors
+            .map((err) => `${err.field}: ${err.message}`)
+            .join("\n");
+          setErrorMessage(errorMessages);
+        } else {
+          setErrorMessage(data.message || "Failed to submit form. Please try again.");
+        }
+        setSubmitStatus("error");
+      } else {
+        // Success
+        setSuccessMessage(data.message || "Form submitted successfully!");
+        setSubmitStatus("success");
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          phno: "",
+          message: "",
+        });
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setErrorMessage(
+        error.message || "Network error. Please check your connection and try again."
+      );
+      setSubmitStatus("error");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <>
       <Navbar />
@@ -66,32 +144,101 @@ Kalpesh Borhade: 8446500081</p>
 
           {/* RIGHT */}
           <div className="contact-form">
-            <form>
+            <form onSubmit={handleSubmit}>
+              {/* Status Messages */}
+              {submitStatus === "success" && (
+                <div style={{
+                  padding: "12px 16px",
+                  marginBottom: "20px",
+                  backgroundColor: "#d4edda",
+                  color: "#155724",
+                  border: "1px solid #c3e6cb",
+                  borderRadius: "4px",
+                  fontSize: "14px",
+                }}>
+                  ✓ {successMessage}
+                </div>
+              )}
+
+              {submitStatus === "error" && (
+                <div style={{
+                  padding: "12px 16px",
+                  marginBottom: "20px",
+                  backgroundColor: "#f8d7da",
+                  color: "#721c24",
+                  border: "1px solid #f5c6cb",
+                  borderRadius: "4px",
+                  fontSize: "14px",
+                  whiteSpace: "pre-line",
+                }}>
+                  ✗ {errorMessage}
+                </div>
+              )}
+
               <div className="form-row">
                 <div className="form-group">
                   <label>Full Name</label>
-                  <input type="text" placeholder="John Doe" />
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="John Doe"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    disabled={isLoading}
+                  />
                 </div>
 
                 <div className="form-group">
                   <label>Email Address</label>
-                  <input type="email" placeholder="john@example.com" />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="john@example.com"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    disabled={isLoading}
+                  />
                 </div>
               </div>
 
               <div className="form-group">
                 <label>Phone Number</label>
-                <input type="text" placeholder="98765 43210" />
+                <input
+                  type="text"
+                  name="phno"
+                  placeholder="98765 43210"
+                  value={formData.phno}
+                  onChange={handleChange}
+                  required
+                  disabled={isLoading}
+                />
               </div>
 
               <div className="form-group">
                 <label>Your Message</label>
-                <textarea placeholder="Write your message here... " />
+                <textarea
+                  name="message"
+                  placeholder="Write your message here... "
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  disabled={isLoading}
+                />
               </div>
 
-              <button type="submit" className="send-btn">
+              <button
+                type="submit"
+                className="send-btn"
+                disabled={isLoading}
+                style={{
+                  opacity: isLoading ? 0.6 : 1,
+                  cursor: isLoading ? "not-allowed" : "pointer",
+                }}
+              >
                 <Send size={18} />
-                Send Message
+                {isLoading ? "Sending..." : "Send Message"}
               </button>
             </form>
           </div>
