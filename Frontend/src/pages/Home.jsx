@@ -5,7 +5,7 @@ import "./Home.css";
 const Home = () => {
   return (
     <>
-      <Navbar />
+      <Navbar className="nav" />
 
       <section className="hero">
         <div className="hero-overlay">

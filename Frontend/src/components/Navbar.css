@@ -28,6 +28,12 @@
 }
 
 /* LOGO BASE */
+
+.logo-img {
+  height: 100px;
+  width: auto;
+  object-fit: contain;
+}
 .logo {
   font-size: 26px;
   font-weight: 700;
@@ -35,13 +41,18 @@
   transition: color 0.3s ease;
 }
 
+.nav-part {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-direction: row;
+}
 /* SUBTEXT */
 .logo span {
   display: block;
   color: #ff9800;
   font-size: 14px;
   letter-spacing: 4px;
-  margin-top: 5px;
 }
 
 /* HOME – TRANSPARENT NAVBAR */

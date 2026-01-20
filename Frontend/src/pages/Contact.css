@@ -1,0 +1,241 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;500&display=swap");
+
+/* ==============================
+   CONTACT SECTION
+================================ */
+.contact-section {
+  padding: 80px 6%;
+  background-color: #faf9f7;
+  font-family: "Inter", sans-serif;
+}
+
+/* ==============================
+   HEADER
+================================ */
+.contact-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 45px auto 50px;
+}
+
+.contact-subtitle {
+  color: #f08a24;
+  font-size: 13px;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+}
+
+.contact-title {
+  font-family: "Playfair Display", serif;
+  font-size: 44px;
+  margin-top: 14px;
+  margin-bottom: 0%;
+  color: #1a1a1a;
+}
+
+/* ==============================
+   GRID LAYOUT
+================================ */
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 90px;
+  align-items: flex-start;
+}
+
+/* ==============================
+   LEFT INFO SECTION
+================================ */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.info-item {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.icon-box {
+  background: #fff1e3;
+  color: #f08a24;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Lucide icon fix */
+.icon-box svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 1.8;
+}
+
+.heading {
+    font-weight: 600;
+  font-family: "Playfair Display", serif;
+  font-size: 15px;
+  margin-bottom: 4px;
+  color: #1a1a1a;
+}
+
+.info-item p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+  margin: 0%;
+}
+
+/* ==============================
+   MAP PLACEHOLDER
+================================ */
+.map-box {
+  margin-top: 12px;
+  height: 210px;
+  background: #f1f1f1;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 14px;
+}
+
+/* ==============================
+   FORM CARD
+================================ */
+.contact-form {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 18px;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.06);
+}
+
+/* ==============================
+   FORM GRID
+================================ */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* ==============================
+   FORM ELEMENTS
+================================ */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 22px;
+}
+
+.form-group label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    background-color: #f8f8f8;
+  padding: 13px 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #aaa;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #f08a24;
+  box-shadow: 0 0 0 3px rgba(240, 138, 36, 0.15);
+}
+
+.form-group textarea {
+  min-height: 130px;
+  resize: none;
+}
+
+/* ==============================
+   SEND BUTTON
+================================ */
+.send-btn {
+  background: #f08a24;
+  color: #ffffff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.25s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.send-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 1.8;
+}
+
+.send-btn:hover {
+  background: #e27d1a;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(240, 138, 36, 0.3);
+}
+
+/* ==============================
+   RESPONSIVE
+================================ */
+@media (max-width: 1024px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 60px 5%;
+  }
+
+  .contact-title {
+    font-size: 36px;
+  }
+
+  .contact-form {
+    padding: 32px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-title {
+    font-size: 30px;
+  }
+
+  .send-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

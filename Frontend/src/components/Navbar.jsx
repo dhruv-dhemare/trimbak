@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { Menu, X } from "lucide-react";
+import logo from "../assets/logo.png";
+
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -29,10 +31,12 @@ const Navbar = () => {
   return (
     <nav className={navbarClass}>
       <div className="nav-container">
-
+        <div className="nav-part"> 
+          <img src={logo} className="logo-img" />
           <h2 className="logo">
             TRAMBAK <span>DEVELOPERS</span>
           </h2>
+        </div>
 
         {/* Desktop Links */}
         <ul className="nav-links">
@@ -43,8 +47,12 @@ const Navbar = () => {
         </ul>
 
         {/* Mobile Icon */}
-        <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
-          {menuOpen ? <FaTimes /> : <FaBars />}
+        <div
+          className="menu-icon"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle Menu"
+        >
+          {menuOpen ? <X size={28} /> : <Menu size={28} />}
         </div>
       </div>
 
