@@ -138,7 +138,16 @@ Kalpesh Borhade: 8446500081</p>
             </div>
 
             <div className="map-box">
-              <span>Google Maps Integration</span>
+              <iframe
+                title="Google Map"
+                width="100%"
+                height="100%"
+                style={{ border: 0, borderRadius: "12px" }}
+                loading="lazy"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps?q=Runwal%20Meadows%20Warje%20Pune&z=16&output=embed"
+              ></iframe>
             </div>
           </div>
 
