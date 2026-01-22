@@ -5,92 +5,115 @@
   width: 100%;
 }
 
-/* Main Grid */
+/* ===============================
+   MAIN GRID
+================================ */
 .footer-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 50px;
+  gap: 3vw;
   max-width: 90%;
   margin: auto;
+  padding: 3vh 0;
 }
 
-/* Brand */
+/* ===============================
+   BRAND
+================================ */
 .logo {
   color: #fff;
-  font-size: 22px;
+  font-size: 1.4rem;
   font-weight: 500;
-  letter-spacing: 0px;
+  letter-spacing: 0em;
+}
+
+.logo-img {
+  height: 10vh;
+  width: auto;
+  object-fit: contain;
 }
 
 .logo span {
   font-weight: 500;
   display: block;
   color: #ff9800;
-  font-size: 14px;
-  letter-spacing: 5px;
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
 }
 
 .footer-col p {
-  margin: 18px 0;
+  margin: 2vh 0;
   line-height: 1.7;
-  font-size: 14px;
+  font-size: 0.9rem;
 }
 
-/* Headings */
+/* ===============================
+   HEADINGS
+================================ */
 .footer-col h3 {
   color: #fff;
-  font-size: 16px;
-  margin-bottom: 20px;
+  font-size: 1rem;
+  margin-bottom: 2vh;
   position: relative;
 }
 
 .footer-col h3::after {
   content: "";
-  width: 40px;
-  height: 2px;
+  width: 5vw;
+  height: 0.3vh;
   background: #ff9800;
   display: block;
-  margin-top: 8px;
+  margin-top: 1vh;
 }
 
-/* Links */
+/* ===============================
+   LINKS
+================================ */
 .footer-col ul {
   list-style: none;
   padding: 0;
 }
 
 .footer-col ul li {
-  margin-bottom: 12px;
-  font-size: 14px;
+  margin-bottom: 1.5vh;
+  font-size: 0.9rem;
 }
 
 .footer-col ul li a {
   text-decoration: none;
   color: #d1d1d1;
-  transition: 0.3s;
+  transition: color 0.3s ease;
 }
 
 .footer-col ul li a:hover {
   color: #ff9800;
 }
 
-/* Social Icons */
+/* ===============================
+   SOCIAL ICONS
+================================ */
 .social-icons {
   display: flex;
-  gap: 12px;
-  margin-top: 20px;
+  gap: 1.1vw;
+  margin-top: 2vh;
 }
 
 .social-icons a {
-  width: 38px;
-  height: 38px;
-  border-radius: 8px;
+  width: 3vh;
+  height: 3vh;
+  min-width: 2.8rem;
+  min-height: 2.8rem;
+
+  border-radius: 0.6rem;
   background: #1a1a1a;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   color: #fff;
-  transition: 0.3s;
+  font-size: 1rem;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .social-icons a:hover {
@@ -98,54 +121,56 @@
   color: #000;
 }
 
-/* Contact */
+/* ===============================
+   CONTACT
+================================ */
 .email {
   color: #ff9800;
 }
 
-/* Bottom Bar */
+/* ===============================
+   BOTTOM BAR
+================================ */
 .footer-bottom {
-  width: 90vw;
-  margin: 30px auto 0;   /* centers horizontally */
-  padding: 20px 0;
-  border-top: 1px solid #222;
+  width: 90%;
+  margin: 0 auto 0;
+  padding: 2vh 0;
+
+  border-top: 0.1vh solid #222;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 2vh;
 
-  font-size: 13px;
+  font-size: 0.8rem;
 }
 
-
 .footer-links a {
-  margin-left: 20px;
+  margin-left: 2vw;
   text-decoration: none;
   color: #d1d1d1;
+  transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
   color: #ff9800;
 }
 
-/* ===================== */
-/* RESPONSIVE */
-/* ===================== */
-
-@media (max-width: 1024px) {
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 64em) {
   .footer-container {
     grid-template-columns: repeat(2, 1fr);
-    padding-left: 2%;
-    padding-right: 2%;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 37.5em) {
   .footer-container {
     grid-template-columns: 1fr;
-    gap: 35px;
+    gap: 4vh;
   }
 
   .footer-bottom {
@@ -154,6 +179,6 @@
   }
 
   .footer-links a {
-    margin: 0 10px;
+    margin: 0 2vw;
   }
 }

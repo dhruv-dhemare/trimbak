@@ -1,3 +1,6 @@
+/* ===============================
+   NAVBAR BASE
+================================ */
 .navbar {
   position: fixed;
   top: 0;
@@ -14,69 +17,74 @@
 /* WHITE STATE */
 .navbar.white {
   background: #fff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0.3vh 1vh rgba(0, 0, 0, 0.08);
 }
 
-/* CONTAINER */
+/* ===============================
+   CONTAINER
+================================ */
 .nav-container {
   max-width: 90%;
   margin: auto;
-  padding: 0px 40px;
+  padding: 0 3vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 10vh;
 }
 
-/* LOGO BASE */
-
-.logo-img {
-  height: 100px;
-  width: auto;
-  object-fit: contain;
-}
-.logo {
-  font-size: 26px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  transition: color 0.3s ease;
-}
-
+/* ===============================
+   LOGO
+================================ */
 .nav-part {
   display: flex;
   align-items: center;
-  gap: 12px;
-  flex-direction: row;
+  gap: 1vw;
 }
-/* SUBTEXT */
+
+.logo-img {
+  height: 8vh;
+  width: auto;
+  object-fit: contain;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  transition: color 0.3s ease;
+}
+
 .logo span {
   display: block;
   color: #ff9800;
-  font-size: 14px;
-  letter-spacing: 4px;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
 }
 
-/* HOME – TRANSPARENT NAVBAR */
+/* Logo color states */
 .navbar.transparent .logo {
   color: #fff;
 }
 
-/* WHITE NAVBAR (SCROLL / OTHER PAGES) */
 .navbar.white .logo {
   color: #000;
 }
 
-
-/* LINKS */
+/* ===============================
+   DESKTOP LINKS
+================================ */
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 32px;
+  gap: 2.5vw;
 }
 
 .nav-links a {
   text-decoration: none;
-  font-size: 15px;
+  font-size: 0.95rem;
   font-weight: 500;
+  transition: color 0.2s ease;
 }
 
 .navbar.transparent .nav-links a {
@@ -91,36 +99,42 @@
   color: #ff9800;
 }
 
-/* MOBILE */
+/* ===============================
+   MOBILE ICON
+================================ */
 .menu-icon {
   display: none;
-  font-size: 22px;
   cursor: pointer;
 }
 
-/* MOBILE MENU */
+/* ===============================
+   MOBILE MENU
+================================ */
 .mobile-menu {
   display: none;
   flex-direction: column;
   background: #fff;
   width: 100%;
-  padding: 20px 0;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  padding: 3vh 0;
+  box-shadow: 0 1vh 3vh rgba(0, 0, 0, 0.15);
 }
 
 .mobile-menu li {
   text-align: center;
-  padding: 12px 0;
+  padding: 1.5vh 0;
 }
 
 .mobile-menu a {
   text-decoration: none;
   color: #000;
-  font-size: 16px;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 48em) {
   .nav-links {
     display: none;
   }
@@ -131,5 +145,13 @@
 
   .mobile-menu.open {
     display: flex;
+  }
+
+  .logo-img {
+    height: 6vh;
+  }
+
+  .logo {
+    font-size: 1.3rem;
   }
 }

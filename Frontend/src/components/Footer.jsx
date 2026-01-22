@@ -51,11 +51,14 @@ const Footer = () => {
         <div className="footer-col">
           <h3>Contact Us</h3>
           <p>
-            123 Construction Avenue,<br />
-            Andheri East, Mumbai – 400069
+            Runwal Meadows, Sr No. 915/1+2,Bld no. 12, Office No 6, Warje Pune-411058
           </p>
-          <p>+91 98765 43210</p>
-          <p className="email">info@triambakconstruction.com</p>
+                          <p>Manish Borhade: 9561476203<br/>
+
+Tanaji Bodake: 9890704321<br/>
+
+Kalpesh Borhade: 8446500081</p>
+          <p className="email">tramabkdevelopers@gmail.com</p>
         </div>
 
       </div>

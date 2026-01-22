@@ -4,7 +4,7 @@
    CONTACT SECTION
 ================================ */
 .contact-section {
-  padding: 80px 6%;
+  padding: 10vh 9%;
   background-color: #faf9f7;
   font-family: "Inter", sans-serif;
 }
@@ -14,22 +14,22 @@
 ================================ */
 .contact-header {
   text-align: center;
-  max-width: 720px;
-  margin: 45px auto 50px;
+  max-width: 45rem;
+  margin: 3vh auto 4vh;
 }
 
 .contact-subtitle {
   color: #f08a24;
-  font-size: 13px;
-  letter-spacing: 2.5px;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
   font-weight: 500;
 }
 
 .contact-title {
   font-family: "Playfair Display", serif;
-  font-size: 44px;
-  margin-top: 14px;
-  margin-bottom: 0%;
+  font-size: 2.8rem;
+  margin-top: 1.5vh;
+  margin-bottom: 0;
   color: #1a1a1a;
 }
 
@@ -39,7 +39,7 @@
 .contact-container {
   display: grid;
   grid-template-columns: 1fr 1.3fr;
-  gap: 90px;
+  gap: 6vw;
   align-items: flex-start;
 }
 
@@ -49,12 +49,12 @@
 .contact-info {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 3vh;
 }
 
 .info-item {
   display: flex;
-  gap: 18px;
+  gap: 1.5vw;
   align-items: flex-start;
   width: 100%;
 }
@@ -62,50 +62,51 @@
 .icon-box {
   background: #fff1e3;
   color: #f08a24;
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
+  width: 4vh;
+  height: 4vh;
+  min-width: 2.8rem;
+  min-height: 2.8rem;
+  border-radius: 0.8rem;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
 
-/* Lucide icon fix */
 .icon-box svg {
-  width: 20px;
-  height: 20px;
+  width: 1.2rem;
+  height: 1.2rem;
   stroke-width: 1.8;
 }
 
 .heading {
-    font-weight: 600;
+  font-weight: 600;
   font-family: "Playfair Display", serif;
-  font-size: 15px;
-  margin-bottom: 4px;
+  font-size: 0.9rem;
+  margin-bottom: 0.4vh;
   color: #1a1a1a;
 }
 
 .info-item p {
-  font-size: 14px;
+  font-size: 0.85rem;
   color: #555;
   line-height: 1.6;
-  margin: 0%;
+  margin: 0;
 }
 
 /* ==============================
    MAP PLACEHOLDER
 ================================ */
 .map-box {
-  margin-top: 12px;
-  height: 210px;
+  margin-top: 1.5vh;
+  height: 28vh;
   background: #f1f1f1;
-  border-radius: 14px;
+  border-radius: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #999;
-  font-size: 14px;
+  font-size: 0.9rem;
 }
 
 /* ==============================
@@ -113,9 +114,9 @@
 ================================ */
 .contact-form {
   background: #ffffff;
-  padding: 20px;
-  border-radius: 18px;
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.06);
+  padding: 3vh;
+  border-radius: 1.2rem;
+  box-shadow: 0 3vh 6vh rgba(0, 0, 0, 0.06);
 }
 
 /* ==============================
@@ -124,7 +125,7 @@
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 1.5vw;
 }
 
 /* ==============================
@@ -133,22 +134,22 @@
 .form-group {
   display: flex;
   flex-direction: column;
-  margin-bottom: 22px;
+  margin-bottom: 2.5vh;
 }
 
 .form-group label {
-  font-size: 14px;
-  margin-bottom: 6px;
+  font-size: 0.9rem;
+  margin-bottom: 0.6vh;
   color: #333;
 }
 
 .form-group input,
 .form-group textarea {
-    background-color: #f8f8f8;
-  padding: 13px 14px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 14px;
+  background-color: #f8f8f8;
+  padding: 1.2vh 1vw;
+  border: 0.025rem solid #ddd;
+  border-radius: 0.6rem;
+  font-size: 0.9rem;
   font-family: inherit;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
@@ -162,11 +163,10 @@
 .form-group textarea:focus {
   outline: none;
   border-color: #f08a24;
-  box-shadow: 0 0 0 3px rgba(240, 138, 36, 0.15);
 }
 
 .form-group textarea {
-  min-height: 130px;
+  min-height: 16vh;
   resize: none;
 }
 
@@ -177,51 +177,49 @@
   background: #f08a24;
   color: #ffffff;
   border: none;
-  padding: 14px 28px;
-  border-radius: 10px;
-  font-size: 15px;
+  padding: 1.4vh 2vw;
+  border-radius: 0.8rem;
+  font-size: 0.95rem;
   font-weight: 500;
   cursor: pointer;
+
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.6vw;
+
   transition: background 0.25s ease, transform 0.2s ease,
     box-shadow 0.2s ease;
 }
 
 .send-btn svg {
-  width: 18px;
-  height: 18px;
+  width: 1.1rem;
+  height: 1.1rem;
   stroke-width: 1.8;
 }
 
 .send-btn:hover {
   background: #e27d1a;
-  transform: translateY(-1px);
-  box-shadow: 0 10px 20px rgba(240, 138, 36, 0.3);
+  transform: translateY(-0.15vh);
+  box-shadow: 0 1.5vh 3vh rgba(240, 138, 36, 0.3);
 }
 
 /* ==============================
    RESPONSIVE
 ================================ */
-@media (max-width: 1024px) {
+@media (max-width: 64em) {
   .contact-container {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 6vh;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 48em) {
   .contact-section {
-    padding: 60px 5%;
+    padding: 10vh 5%;
   }
 
   .contact-title {
-    font-size: 36px;
-  }
-
-  .contact-form {
-    padding: 32px;
+    font-size: 2.3rem;
   }
 
   .form-row {
@@ -229,9 +227,9 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 30em) {
   .contact-title {
-    font-size: 30px;
+    font-size: 2rem;
   }
 
   .send-btn {
