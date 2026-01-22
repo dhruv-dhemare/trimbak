@@ -202,6 +202,16 @@
   transform: translateY(-0.15vh);
   box-shadow: 0 1.5vh 3vh rgba(240, 138, 36, 0.3);
 }
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: #444;      /* dark grey text */
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset; /* white background */
+  transition: background-color 5000s ease-in-out 0s;
+}
 
 /* ==============================
    RESPONSIVE
