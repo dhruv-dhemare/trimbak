@@ -195,6 +195,7 @@ Kalpesh Borhade: 8446500081</p>
                     onChange={handleChange}
                     required
                     disabled={isLoading}
+                    style={{ color: "#444" }}
                   />
                 </div>
 
@@ -208,6 +209,7 @@ Kalpesh Borhade: 8446500081</p>
                     onChange={handleChange}
                     required
                     disabled={isLoading}
+                    style={{ color: "#444" }}
                   />
                 </div>
               </div>
@@ -222,6 +224,7 @@ Kalpesh Borhade: 8446500081</p>
                   onChange={handleChange}
                   required
                   disabled={isLoading}
+                  style={{ color: "#444" }}
                 />
               </div>
 
@@ -234,6 +237,7 @@ Kalpesh Borhade: 8446500081</p>
                   onChange={handleChange}
                   required
                   disabled={isLoading}
+                  style={{ color: "#444" }}
                 />
               </div>
 
