@@ -1,0 +1,167 @@
+.projects-section {
+  padding: 10vh 9vw; /* Adjusted to vw for horizontal consistency */
+  padding-left: 5vw;
+  padding-right: 5vw;
+  background-color: #faf9f7;
+  font-family: "Inter", sans-serif;
+}
+
+.projects-header {
+  text-align: center;
+  max-width: 70vw; /* Changed from rem to vw */
+  margin: 3vh auto 6vh;
+}
+
+.projects-subtitle {
+  color: #f08a24;
+  font-size: 0.8vw; /* Fluid size */
+  letter-spacing: 0.18em;
+  font-weight: 500;
+}
+
+.projects-title {
+  font-family: "Playfair Display", serif;
+  font-size: 2.5vw; /* Scales with width */
+  margin-top: 1.5vh;
+  color: #1a1a1a;
+  margin-bottom: 1vh;
+}
+
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3vw;
+  max-width: 85vw;
+  margin: 0 auto;
+}
+
+.project-card {
+  background: #ffffff;
+  padding: 3vh 2vw;
+  border-radius: 2vh; /* Rounded corners responsive to height */
+  box-shadow: 0 3vh 6vh rgba(0, 0, 0, 0.06);
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* --- FLUID SIZING (Desktop) --- */
+.project-card .project-name {
+  font-family: "Playfair Display", serif;
+  /* 2.5% of screen width. On a laptop (1440px) this is ~36px */
+  font-size: 2vw; 
+  margin: 2.5vh 0 1vh;
+  color: #1a1a1a;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.project-card .project-location {
+  /* 1.1% of screen width. On a laptop this is ~16px */
+  font-size: 0.9vw; 
+  color: #666;
+  margin-bottom: 1.5vh;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+}
+
+.project-description {
+  font-size: 0.95vw; /* Slightly fluid body text */
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 2vh;
+}
+
+/* Status Pill */
+.status-pill {
+  position: absolute;
+  top: 1.5vh;
+  right: 1vw;
+  padding: 0.5vh 1.1vw;
+  border-radius: 5vh; /* Pill shape using vh */
+  font-size: 0.65vw; /* Fluid text size */
+  font-weight: 100;
+  border: 1px solid transparent;
+  z-index: 10;
+}
+
+.status-pill.completed {
+  background: #dcfce7;
+  color: #14532d;
+  border-color: #bbf7d0;
+}
+
+.status-pill.ongoing {
+  background: #fef3c7;
+  color: #92400e;
+  border-color: #fde68a;
+}
+
+.status-pill.upcoming {
+  background: #e0e7ff;
+  color: #3730a3;
+  border-color: #c7d2fe;
+}
+
+.project-card .send-btn {
+  padding: 1.2vh 1.8vw;
+}
+
+.project-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 1.5vh;
+  overflow: hidden;
+  margin-bottom: 2vh;
+  position: relative;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+/* Critical: When screen gets small, we must INCREASE the vw percentage 
+   or the text will become microscopic. */
+
+@media (max-width: 64em) {
+  .projects-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .projects-title { font-size: 4vw; }
+  .projects-subtitle { font-size: 1vw; }
+  /* Make text chunks bigger on tablet */
+  .project-card .project-name { font-size: 2vw; }
+  .project-card .project-location { font-size: 1vw; }
+  .status-pill { font-size: 1.2vw; }
+  .project-description { font-size: 1.3vw; }
+}
+
+@media (max-width: 40em) {
+  .projects-container {
+    grid-template-columns: 1fr;
+  }
+  
+  /* On Mobile, 2vw is tiny. We bump it up significantly. */
+  .projects-title { font-size: 4vw; }
+  .projects-subtitle { font-size: 2vw; }
+
+  .project-card .project-name { 
+    font-size: 6vw; /* Big readable header on phone */
+  }
+  
+  .project-card .project-location { 
+    font-size: 3vw; 
+  }
+  
+  .project-description {
+    font-size: 3.5vw;
+  }
+
+  .status-pill { 
+    font-size: 2vw; 
+    padding: 0.5vh 3vw;
+  }
+}
