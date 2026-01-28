@@ -182,3 +182,108 @@
     margin: 0 2vw;
   }
 }
+/* ==============================
+   FOOTER FORM (LAST COLUMN)
+================================ */
+.footer-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  background: #121212;
+  padding: 1.4rem;
+  border-radius: 0.9rem;
+  border: 0.06rem solid rgba(255,255,255,0.08);
+}
+
+/* Two inputs in one row */
+.footer-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+
+/* Single input group */
+.footer-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.footer-form-group label {
+  font-size: 0.75rem;
+  color: #f1f1f1;
+}
+
+/* Inputs & textarea */
+.footer-form-group input,
+.footer-form-group textarea {
+  background: #1a1a1a;
+  border: 0.06rem solid rgba(255,255,255,0.12);
+  color: #f1f1f1;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.8rem;
+  border-radius: 0.6rem;
+  outline: none;
+  transition: border 0.25s ease, background 0.25s ease;
+}
+
+.footer-form-group input::placeholder,
+.footer-form-group textarea::placeholder {
+  color: #a5a5a5;
+}
+
+.footer-form-group input:focus,
+.footer-form-group textarea:focus {
+  border-color: #d4a017;
+  background: #1e1e1e;
+}
+
+/* Smaller textarea */
+.footer-form-group textarea {
+  resize: none;
+  min-height: 4.2rem;   /* 👈 smaller */
+}
+
+/* Send Button */
+.footer-send-btn {
+  text-align: center;
+  margin-top: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  background: #d4a017;
+  color: #2f2f2f;
+  border: none;
+  padding: 0.7rem;
+  font-size: 0.9rem;
+  border-radius: 0.7rem;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.footer-send-btn:hover {
+  background: #f1b81c;
+  transform: translateY(-0.08rem);
+}
+
+.footer-send-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Status messages */
+.footer-form .success,
+.footer-form .error {
+  font-size: 0.8rem;
+  border-radius: 0.6rem;
+}
+/* ===============================
+   FOOTER FORM – MOBILE STACK
+================================ */
+@media (max-width: 48em) {
+  .footer-form-row {
+    grid-template-columns: 1fr; /* one by one */
+  }
+}

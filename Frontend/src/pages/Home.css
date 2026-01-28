@@ -90,7 +90,7 @@
 ================================ */
 .service-card {
   background: #fff;
-  padding: 2vh 1vw;
+  padding: 2vh 2vw;
   border-radius: 1rem;
   text-align: left;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -147,6 +147,9 @@
    RESPONSIVE
 ================================ */
 @media (max-width: 64em) {
+  .service-card {
+    padding: 2vh 2vw;
+  }
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -157,6 +160,9 @@
 }
 
 @media (max-width: 40em) {
+    .service-card {
+      padding: 2vh 2vw;
+    }
   .services-grid {
     grid-template-columns: 1fr;
   }
@@ -350,7 +356,7 @@
 /* ===== Luxury Centered Carousel ===== */
 
 .project-carousel {
-  width: 100vw;
+  width: 100%;
   overflow: hidden;
   position: relative;
   padding: 10vh 0;
