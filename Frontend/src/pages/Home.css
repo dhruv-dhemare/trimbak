@@ -215,7 +215,7 @@
 
 .project-card {
   background: #faf9f7;
-  padding: 2vh 1vw;
+  /* padding: 2vh 1vw; */
   border-radius: 1rem;
   text-align: left;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -223,10 +223,10 @@
   overflow: hidden;
 }
 
-.project-card:hover {
+/* .project-card:hover {
   border-top: 0.4vh solid #f08a24;
   transform: translateY(-5px);
-}
+} */
 
 .project-card img {
   width: 100%;
@@ -483,7 +483,7 @@
   .project-carousel { padding-top: 2vh; }
   .pos-1 { transform: translateX(60vw) scale(0.9); }
   /* .pos-2 { transform: translateX(42vw) scale(0.75); } */
-  .pos-9 { transform: translateX(-60vw) scale(0.9); }
+  .pos-7 { transform: translateX(-60vw) scale(0.9); }
   /* .pos-8 { transform: translateX(-42vw) scale(0.75); } */
 }
 

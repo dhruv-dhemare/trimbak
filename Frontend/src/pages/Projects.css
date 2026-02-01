@@ -1,167 +1,164 @@
 .projects-section {
-  padding: 10vh 9vw; /* Adjusted to vw for horizontal consistency */
-  padding-left: 5vw;
-  padding-right: 5vw;
+  padding: 10vh 5vw;
   background-color: #faf9f7;
   font-family: "Inter", sans-serif;
 }
 
 .projects-header {
   text-align: center;
-  max-width: 70vw; /* Changed from rem to vw */
+  max-width: 70vw;
   margin: 3vh auto 6vh;
 }
 
 .projects-subtitle {
   color: #f08a24;
-  font-size: 0.8vw; /* Fluid size */
+  font-size: 0.8rem;
   letter-spacing: 0.18em;
   font-weight: 500;
 }
 
 .projects-title {
   font-family: "Playfair Display", serif;
-  font-size: 2.5vw; /* Scales with width */
+  font-size: 2rem;
   margin-top: 1.5vh;
   color: #1a1a1a;
   margin-bottom: 1vh;
 }
 
+/* 3-card grid for desktop, stack on smaller screens */
 .projects-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr); /* fixed 3 columns */
   gap: 3vw;
   max-width: 85vw;
   margin: 0 auto;
 }
 
 .project-card {
-  background: #ffffff;
-  padding: 3vh 2vw;
-  border-radius: 2vh; /* Rounded corners responsive to height */
-  box-shadow: 0 3vh 6vh rgba(0, 0, 0, 0.06);
-  position: relative;
-  width: 90%;
-  margin: 0 auto;
+  height: 50vh; /* original height kept */
+  background: #fff;
+  border-radius: 1.5vh;
+  overflow: hidden;
+  box-shadow: 0 1.5vh 3vh rgba(0, 0, 0, 0.1);
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* --- FLUID SIZING (Desktop) --- */
-.project-card .project-name {
-  font-family: "Playfair Display", serif;
-  /* 2.5% of screen width. On a laptop (1440px) this is ~36px */
-  font-size: 2vw; 
-  margin: 2.5vh 0 1vh;
-  color: #1a1a1a;
-  font-weight: 700;
-  line-height: 1.2;
-}
-
-.project-card .project-location {
-  /* 1.1% of screen width. On a laptop this is ~16px */
-  font-size: 0.9vw; 
-  color: #666;
-  margin-bottom: 1.5vh;
-  letter-spacing: 0.02em;
-  font-weight: 500;
-}
-
-.project-description {
-  font-size: 0.95vw; /* Slightly fluid body text */
-  color: #555;
-  line-height: 1.6;
-  margin-bottom: 2vh;
-}
-
-/* Status Pill */
-.status-pill {
-  position: absolute;
-  top: 1.5vh;
-  right: 1vw;
-  padding: 0.5vh 1.1vw;
-  border-radius: 5vh; /* Pill shape using vh */
-  font-size: 0.65vw; /* Fluid text size */
-  font-weight: 100;
-  border: 1px solid transparent;
-  z-index: 10;
-}
-
-.status-pill.completed {
-  background: #dcfce7;
-  color: #14532d;
-  border-color: #bbf7d0;
-}
-
-.status-pill.ongoing {
-  background: #fef3c7;
-  color: #92400e;
-  border-color: #fde68a;
-}
-
-.status-pill.upcoming {
-  background: #e0e7ff;
-  color: #3730a3;
-  border-color: #c7d2fe;
-}
-
-.project-card .send-btn {
-  padding: 1.2vh 1.8vw;
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 2.5vh 5vh rgba(0, 0, 0, 0.15);
 }
 
 .project-image {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  border-radius: 1.5vh;
-  overflow: hidden;
-  margin-bottom: 2vh;
   position: relative;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
 }
 
 .project-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
-/* --- MOBILE RESPONSIVENESS --- */
-/* Critical: When screen gets small, we must INCREASE the vw percentage 
-   or the text will become microscopic. */
-
-@media (max-width: 64em) {
-  .projects-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .projects-title { font-size: 4vw; }
-  .projects-subtitle { font-size: 1vw; }
-  /* Make text chunks bigger on tablet */
-  .project-card .project-name { font-size: 2vw; }
-  .project-card .project-location { font-size: 1vw; }
-  .status-pill { font-size: 1.2vw; }
-  .project-description { font-size: 1.3vw; }
+/* Orange pill for status/completion */
+.status-pill {
+  position: absolute;
+  top: 1vh;
+  left: 1vh;
+  background-color: orange;
+  color: #fff;
+  padding: 0.5vh 1.2vw;
+  border-radius: 5vh;
+  font-size: 0.8vw;
+  font-weight: 600;
+  z-index: 10;
+  text-transform: capitalize;
 }
 
-@media (max-width: 40em) {
-  .projects-container {
-    grid-template-columns: 1fr;
-  }
-  
-  /* On Mobile, 2vw is tiny. We bump it up significantly. */
-  .projects-title { font-size: 4vw; }
-  .projects-subtitle { font-size: 2vw; }
+/* Overlay for text to make it readable */
+.project-info {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 30%; /* controls how much of the image is darkened */
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85) 0%,   /* bottom – darkest */
+    rgba(0, 0, 0, 0.65) 35%,  /* main text area */
+    rgba(0, 0, 0, 0.35) 65%,  /* fade zone */
+    rgba(0, 0, 0, 0.15) 95%,  /* top – slightly dark */
+    rgba(0, 0, 0, 0) 100%    /* fully transparent */
+  );
 
-  .project-card .project-name { 
-    font-size: 6vw; /* Big readable header on phone */
-  }
-  
-  .project-card .project-location { 
-    font-size: 3vw; 
-  }
-  
-  .project-description {
-    font-size: 3.5vw;
-  }
+  color: #fff;
+  padding: 2vh 1.5vw;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.5vh;
+}
 
-  .status-pill { 
-    font-size: 2vw; 
-    padding: 0.5vh 3vw;
-  }
+
+.project-info .project-name {
+  padding: 0%;
+  color: #faf9f7;
+  font-family: "Playfair Display", serif;
+  font-size: 1.8vw;
+  margin: 0;
+  font-weight: 700;
+}
+
+.project-info .project-location {
+  padding: 0%;
+  color: azure;
+  font-size: 0.9vw;
+  margin: 0;
+}
+
+.project-info p {
+  padding: 0%;
+  color: azure;
+  font-size: 0.9vw;
+  margin: 0;
+}
+
+/* ===== Responsive Adjustments ===== */
+@media (max-width: 1024px) {
+  .projects-container { grid-template-columns: repeat(2, 1fr); } /* 2 cards per row on tablets */
+  .status-pill { font-size: 1.2vw; padding: 0.5vh 2vw; }
+  .project-info .project-name { font-size: 3vw; }
+  .project-info .project-location,
+  .project-info p { font-size: 1.5vw; }
+}
+
+@media (max-width: 640px) {
+  .projects-container { grid-template-columns: 1fr; } /* 1 card per row on phones */
+  .status-pill { font-size: 2vw; padding: 0.5vh 3vw; }
+  .project-info .project-name { font-size: 5vw; }
+  .project-info .project-location,
+  .project-info p { font-size: 3vw; }
+  .project-info { padding: 3vh 3vw; }
+}
+
+@media (max-width: 480px) {
+  .project-card { height: 50vh; } /* smaller cards for small phones */
+  .status-pill { font-size: 2.5vw; padding: 0.5vh 3vw; }
+  .project-info .project-name { font-size: 6vw; }
+  .project-info .project-location,
+  .project-info p { font-size: 3.5vw; }
+  .project-info { padding: 3vh 2.5vw; }
+}
+
+@media (max-width: 360px) {
+  .project-card { height: 50vh; } /* very small phone cards */
+  .status-pill { font-size: 3vw; padding: 0.5vh 2.5vw; }
+  .project-info .project-name { font-size: 6.5vw; }
+  .project-info .project-location,
+  .project-info p { font-size: 4vw; }
+  .project-info { padding: 2.5vh 2vw; }
 }

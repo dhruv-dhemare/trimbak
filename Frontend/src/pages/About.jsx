@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import aboutImage from "../assets/about_image.png";
 import dirImage from "../assets/director.png";
-import { Eye, Target } from "lucide-react";
+import { Eye, Target ,CheckCircle} from "lucide-react";
 
 const About = () => {
   return (
@@ -52,31 +52,61 @@ development, or a large-scale infrastructure project, we approach every
         </div>
       </section>
 
-       <section className="vision-mission-section">
-      <div className="vision-mission-container">
+      <section className="vm-section">
+      <div className="vm-container">
 
         {/* Vision */}
-        <div className="vision-mission-card">
-          <div className="icon-wrapper">
-            <Eye size={36} color="#4f46e5" /> {/* Replace color with your theme */}
+        <div className="vm-card">
+          <div className="vm-header">
+            <div className="vm-icon-box">
+              <Eye size={26} strokeWidth={2} />
+            </div>
+            <h3>Our Vision</h3>
           </div>
-          <h3>Our Vision</h3>
-          <p>
-            To be a global leader in providing innovative solutions that empower
-            individuals and businesses to achieve more.
+
+          <p className="vm-text">
+            To be a leading force in shaping modern, sustainable communities
+            through innovative construction and responsible development —
+            creating spaces that inspire, empower, and endure for generations.
           </p>
         </div>
 
         {/* Mission */}
-        <div className="vision-mission-card">
-          <div className="icon-wrapper">
-            <Target size={36} color="#4f46e5" /> {/* Same color */}
+        <div className="vm-card">
+          <div className="vm-header">
+            <div className="vm-icon-box">
+              <Target size={26} strokeWidth={2} />
+            </div>
+            <h3>Our Mission</h3>
           </div>
-          <h3>Our Mission</h3>
-          <p>
-            To deliver high-quality, user-centric products and services while
-            fostering growth, sustainability, and positive impact.
-          </p>
+
+          <ul className="vm-list">
+            <li>
+              <CheckCircle size={18} />
+              Deliver high-quality, cost-effective construction and development
+              solutions on schedule by employing motivated, skilled professionals
+              and trusted partners.
+            </li>
+
+            <li>
+              <CheckCircle size={18} />
+              Foster long-term relationships with clients, suppliers, and
+              communities through transparency, reliability, and superior
+              performance.
+            </li>
+
+            <li>
+              <CheckCircle size={18} />
+              Drive innovation in design, construction techniques, and
+              sustainability practices that elevate industry standards.
+            </li>
+
+            <li>
+              <CheckCircle size={18} />
+              Contribute positively to urban development while respecting the
+              environment and enhancing the lives of the people we serve.
+            </li>
+          </ul>
         </div>
 
       </div>

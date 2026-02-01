@@ -4,7 +4,7 @@ import "./Home.css";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import project from "../assets/project1.png";
+import project from "../assets/vatsala_chs.png";
 import {
   Home as HomeIcon,
   Building2,
