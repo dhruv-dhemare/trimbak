@@ -38,7 +38,7 @@ const Footer = () => {
     setSuccessMessage("");
 
     try {
-      const response = await fetch("http://localhost:3000/api/form", {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/form`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
