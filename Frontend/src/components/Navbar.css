@@ -130,6 +130,10 @@
   font-size: 1rem;
   font-weight: 500;
 }
+.mobile-menu li a {
+  display: block;        /* 🔥 important */
+  width: 100%;
+}
 
 /* ===============================
    RESPONSIVE

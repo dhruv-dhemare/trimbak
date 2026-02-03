@@ -97,10 +97,7 @@ const Footer = () => {
           </p>
 
           <div className="social-icons">
-            <a href="#"><FaFacebookF /></a>
-            <a href="#"><FaInstagram /></a>
-            <a href="#"><FaLinkedinIn /></a>
-            <a href="#"><FaTwitter /></a>
+            <a href="https://www.instagram.com/trambak_developers/"><FaInstagram /></a>
           </div>
         </div>
 
@@ -243,10 +240,6 @@ Kalpesh Borhade: 8446500081</p>
       {/* Bottom Bar */}
       <div className="footer-bottom">
         <p>© 2026 Triambak Construction. All Rights Reserved.</p>
-        <div className="footer-links">
-          <a href="/privacy">Privacy Policy</a>
-          <a href="/terms">Terms of Service</a>
-        </div>
       </div>
     
     </footer>

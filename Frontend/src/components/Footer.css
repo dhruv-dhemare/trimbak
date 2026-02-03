@@ -38,7 +38,7 @@
   display: block;
   color: #ff9800;
   font-size: 0.8rem;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.4em;
 }
 
 .footer-col p {
@@ -137,12 +137,7 @@
   padding: 2vh 0;
 
   border-top: 0.1vh solid #222;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 2vh;
+  text-align: center;
 
   font-size: 0.8rem;
 }

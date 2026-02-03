@@ -53,64 +53,62 @@ development, or a large-scale infrastructure project, we approach every
       </section>
 
       <section className="vm-section">
-      <div className="vm-container">
+        <div className="vm-container">
 
-        {/* Vision */}
-        <div className="vm-card">
-          <div className="vm-header">
-            <div className="vm-icon-box">
-              <Eye size={26} strokeWidth={2} />
+          {/* Vision */}
+          <div className="v-row">
+            <div className="vm-title">
+              <span>Our</span>
+              <span>Vision</span>
             </div>
-            <h3>Our Vision</h3>
+
+            <div className="vm-content">
+              <p className="vm-text">
+                To be a leading force in shaping modern, sustainable communities
+                through innovative construction and responsible development —
+                creating spaces that inspire, empower, and endure for generations.
+              </p>
+            </div>
           </div>
 
-          <p className="vm-text">
-            To be a leading force in shaping modern, sustainable communities
-            through innovative construction and responsible development —
-            creating spaces that inspire, empower, and endure for generations.
-          </p>
-        </div>
-
-        {/* Mission */}
-        <div className="vm-card">
-          <div className="vm-header">
-            <div className="vm-icon-box">
-              <Target size={26} strokeWidth={2} />
+          {/* Mission */}
+          <div className="m-row">
+            <div className="vm-title">
+              <span>Our</span>
+              <span>Mission</span>
             </div>
-            <h3>Our Mission</h3>
+
+            <div className="vm-content">
+              <ul className="vm-list">
+                <li>
+                  <CheckCircle size={18} className="check-icon" />
+                  Deliver high-quality, cost-effective construction and development
+                  solutions on schedule by employing motivated, skilled professionals
+                  and trusted partners.
+                </li>
+                <li>
+                  <CheckCircle size={18} className="check-icon" />
+                  Foster long-term relationships with clients, suppliers, and
+                  communities through transparency, reliability, and superior
+                  performance.
+                </li>
+                <li>
+                  <CheckCircle size={18} className="check-icon" />
+                  Drive innovation in design, construction techniques, and
+                  sustainability practices that elevate industry standards.
+                </li>
+                <li>
+                  <CheckCircle size={18} className="check-icon" />
+                  Contribute positively to urban development while respecting the
+                  environment and enhancing the lives of the people we serve.
+                </li>
+              </ul>
+            </div>
           </div>
 
-          <ul className="vm-list">
-            <li>
-              <CheckCircle size={18} />
-              Deliver high-quality, cost-effective construction and development
-              solutions on schedule by employing motivated, skilled professionals
-              and trusted partners.
-            </li>
-
-            <li>
-              <CheckCircle size={18} />
-              Foster long-term relationships with clients, suppliers, and
-              communities through transparency, reliability, and superior
-              performance.
-            </li>
-
-            <li>
-              <CheckCircle size={18} />
-              Drive innovation in design, construction techniques, and
-              sustainability practices that elevate industry standards.
-            </li>
-
-            <li>
-              <CheckCircle size={18} />
-              Contribute positively to urban development while respecting the
-              environment and enhancing the lives of the people we serve.
-            </li>
-          </ul>
         </div>
+      </section>
 
-      </div>
-    </section>
 
       <section className="directors-section">
         <div className="directors-wrapper">

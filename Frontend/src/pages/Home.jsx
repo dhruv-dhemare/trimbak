@@ -37,12 +37,26 @@ const Home = () => {
 
       <section className="hero">
         <div className="hero-overlay">
-          <h1>Building Tomorrow’s Landmarks</h1>
-          <p>Quality. Precision. Trust.</p>
+          <span className="since">SINCE 2005</span>
+
+          <h1 className="hero-title">
+            <span className="white">Building Trust.</span><br />
+            <span className="orange">Creating Landmarks.</span>
+          </h1>
+
+          <p className="hero-subtitle">
+            Triambak Construction – Strength, Precision & Reliability.
+            We transform visions into architectural masterpieces.
+          </p>
+
+          <div className="hero-buttons">
+            <a href="#services" className="btn primary">Our Services</a>
+            <button className="btn outline" onClick={() => navigate("/contact")}>Contact Us</button>
+          </div>
         </div>
       </section>
 
-      <section className="services-section">
+      <section id="services" className="services-section">
         <div className="services-header">
           <span>WHAT WE DO</span>
           <h2>Our Services</h2>
@@ -122,13 +136,9 @@ const Home = () => {
       </section>
 
       <section className="project-section">
-        <div className="project-header">
+        <div className="process-header">
           <span>WHAT WE MADE</span>
           <h2>Projects Completed</h2>
-          <p>
-            Over 100 successful projects delivered across residential,
-            commercial, and industrial sectors.
-          </p>
         </div>
       </section>
 
@@ -161,6 +171,7 @@ const Home = () => {
                   <span>{item.location}</span>
                 </div>
               </div>
+
             );
           })}
         </div>
@@ -185,31 +196,31 @@ const Home = () => {
 
         <div className="process-grid">
           <div className="process-card">
-            <h4>1. Planning & Design</h4>
+            <h4>Planning & Design</h4>
             <p>Architectural design, engineering, and site surveys.</p>
           </div>
           <div className="process-card">
-            <h4>2. Site Work</h4>
+            <h4>Site Work</h4>
             <p>Clearing, excavation, grading, and drainage.</p>
           </div>
           <div className="process-card">
-            <h4>3. Foundation</h4>
+            <h4>Foundation</h4>
             <p>Slabs, crawl spaces, and basements.</p>
           </div>
           <div className="process-card">
-            <h4>4. Building Envelope</h4>
+            <h4>Building Envelope</h4>
             <p>Framing, roofing, insulation, and exterior finishes.</p>
           </div>
           <div className="process-card">
-            <h4>5. MEP Services</h4>
+            <h4>MEP Services</h4>
             <p>HVAC, electrical wiring, plumbing, and lighting.</p>
           </div>
           <div className="process-card">
-            <h4>6. Interiors</h4>
+            <h4>Interiors</h4>
             <p>Drywall, flooring, painting, cabinetry, and finishes.</p>
           </div>
           <div className="process-card">
-            <h4>7. Project Management</h4>
+            <h4>Project Management</h4>
             <p>Procurement, quality control, scheduling, and budgeting.</p>
           </div>
         </div>

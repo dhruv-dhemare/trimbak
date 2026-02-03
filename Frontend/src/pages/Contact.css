@@ -20,8 +20,8 @@
 
 .contact-subtitle {
   color: #f08a24;
-  font-size: 0.8rem;
-  letter-spacing: 0.18em;
+  font-size: 0.9rem;
+  letter-spacing: 0.25em;
   font-weight: 500;
 }
 
@@ -82,15 +82,15 @@
 .heading {
   font-weight: 600;
   font-family: "Playfair Display", serif;
-  font-size: 0.9rem;
+  font-size: 1rem;
   margin-bottom: 0.4vh;
   color: #1a1a1a;
 }
 
 .info-item p {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: #555;
-  line-height: 1.6;
+  line-height: 1.7;
   margin: 0;
 }
 
@@ -217,6 +217,11 @@ textarea:-webkit-autofill:focus {
    RESPONSIVE
 ================================ */
 @media (max-width: 64em) {
+  .contact-subtitle {
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    font-weight: 500;
+  }
   .contact-container {
     grid-template-columns: 1fr;
     gap: 6vh;
@@ -224,6 +229,11 @@ textarea:-webkit-autofill:focus {
 }
 
 @media (max-width: 48em) {
+  .contact-subtitle {
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    font-weight: 500;
+  }
   .contact-section {
     padding: 10vh 5%;
   }
@@ -238,6 +248,11 @@ textarea:-webkit-autofill:focus {
 }
 
 @media (max-width: 30em) {
+  .contact-subtitle {
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    font-weight: 500;
+  }
   .contact-title {
     font-size: 2rem;
   }

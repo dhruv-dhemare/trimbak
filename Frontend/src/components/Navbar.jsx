@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import {NavLink, Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import logo from "../assets/logo.png";
 
@@ -40,11 +40,20 @@ const Navbar = () => {
 
         {/* Desktop Links */}
         <ul className="nav-links">
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/projects">Projects</Link></li>
-          <li><Link to="/contact">Contact</Link></li>
+          <li>
+            <NavLink to="/" end>Home</NavLink>
+          </li>
+          <li>
+            <NavLink to="/about">About</NavLink>
+          </li>
+          <li>
+            <NavLink to="/projects">Projects</NavLink>
+          </li>
+          <li>
+            <NavLink to="/contact">Contact</NavLink>
+          </li>
         </ul>
+
 
         {/* Mobile Icon */}
         <div
@@ -52,17 +61,30 @@ const Navbar = () => {
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle Menu"
         >
-          {menuOpen ? <X size={28} /> : <Menu size={28} />}
+          {menuOpen ? (
+    <X size={28} color={!isHome || scrolled ? "#5c5b5b" : "#fff"} />
+  ) : (
+    <Menu size={28} color={!isHome || scrolled ? "#5c5b5b" : "#fff"} />
+  )}
         </div>
       </div>
 
       {/* Mobile Dropdown */}
       <ul className={`mobile-menu ${menuOpen ? "open" : ""}`}>
-        <li onClick={() => setMenuOpen(false)}><Link to="/">Home</Link></li>
-        <li onClick={() => setMenuOpen(false)}><Link to="/about">About</Link></li>
-        <li onClick={() => setMenuOpen(false)}><Link to="/projects">Projects</Link></li>
-        <li onClick={() => setMenuOpen(false)}><Link to="/contact">Contact</Link></li>
+        <li onClick={() => setMenuOpen(false)}>
+          <NavLink to="/" end>Home</NavLink>
+        </li>
+        <li onClick={() => setMenuOpen(false)}>
+          <NavLink to="/about">About</NavLink>
+        </li>
+        <li onClick={() => setMenuOpen(false)}>
+          <NavLink to="/projects">Projects</NavLink>
+        </li>
+        <li onClick={() => setMenuOpen(false)}>
+          <NavLink to="/contact">Contact</NavLink>
+        </li>
       </ul>
+
     </nav>
   );
 };

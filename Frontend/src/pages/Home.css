@@ -1,47 +1,143 @@
 .hero {
-    width: 100%;
   height: 100vh;
+
   background-image: url("../assets/hero-construction.jpg");
   background-size: cover;
   background-position: center;
+
+  display: flex;
+  align-items: center;            /* vertical alignment */
+  justify-content: flex-start;    /* left aligned */
+
+  padding-left: 20%;
+  padding-right: 8%;
+
   position: relative;
 }
 
+/* Overlay container */
 .hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
+  
+  max-width: 900px;
+}
+
+/* SINCE 2005 */
+.since {
+  display: inline-block;
+  color: #f08a24;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  /* margin-bottom: 1rem; */
+}
+
+/* MAIN HEADING */
+.hero-title {
+  margin-top: 3%;
+  font-family: "Playfair Display", serif;
+  font-size: 3.8rem;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title .white {
+  color: #ffffff;
+}
+
+.hero-title .orange {
+  color: #f59e0b;
+}
+
+/* SUBTITLE */
+.hero-subtitle {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #e5e7eb;
+  max-width: 720px;
+  margin-bottom: 2.5rem;
+}
+
+/* BUTTONS */
+.hero-buttons {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  text-align: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+
 }
 
-.hero-overlay h1 {
-  font-size: 48px;
-  margin-bottom: 10px;
+.btn {
+  padding: 0.9rem 2.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.hero-overlay p {
-  font-size: 18px;
-  letter-spacing: 1px;
+/* Primary button */
+.btn.primary {
+  background-color: #f59e0b;
+  color: #000;
+  border: none;
 }
 
-.nav {
-  height: 12vh;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
+.btn.primary:hover {
+  background-color: #d97706;
 }
 
-/* Responsive */
+/* Outline button */
+.btn.outline {
+  background: transparent;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+}
+
+.btn.outline:hover {
+  background-color: #ffffff;
+  color: #000;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  .hero {
+    padding-left: 6%;
+  }
+}
+
 @media (max-width: 768px) {
-  .hero-overlay h1 {
-    font-size: 34px;
+    .hero-title {
+    font-size: 2.2rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  .hero {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+    font-size: 2.2rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  .hero {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 }
 
@@ -49,14 +145,14 @@
    SERVICES SECTION
 ================================ */
 .services-section {
-  padding: 10vh 10%;
+  padding: 7vh 10%;
   background-color: #faf9f7;
   text-align: center;
 }
 
 .services-header span {
   color: #f08a24;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   letter-spacing: 0.25em;
   font-weight: 500;
 }
@@ -71,9 +167,9 @@
 .services-header p {
   max-width: 50%;
   margin: 2vh auto 6vh;
-  font-size: 1rem;
-  color: #666;
-  line-height: 1.6;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.7;
 }
 
 /* ==============================
@@ -138,17 +234,23 @@
 }
 
 .service-card p {
-  font-size: 0.85rem;
-  color: #666;
-  line-height: 1.6;
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.7;
 }
 
 /* ==============================
    RESPONSIVE
 ================================ */
 @media (max-width: 64em) {
+  .services-header span {
+  color: #f08a24;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+}
   .service-card {
-    padding: 2vh 2vw;
+    padding: 2vh 4vw;
   }
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -160,8 +262,14 @@
 }
 
 @media (max-width: 40em) {
+  .services-header span {
+  color: #f08a24;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+}
     .service-card {
-      padding: 2vh 2vw;
+      padding: 2vh 6vw;
     }
   .services-grid {
     grid-template-columns: 1fr;
@@ -187,7 +295,7 @@
 
 .project-header span {
   color: #f08a24;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   letter-spacing: 0.25em;
   font-weight: 500;
 }
@@ -251,6 +359,11 @@
 }
 
 @media (max-width: 64em) {
+  .project-header span {
+  color: #f08a24;
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+}
   .project-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -261,6 +374,11 @@
 }
 
 @media (max-width: 40em) {
+  .project-header span {
+  color: #f08a24;
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+}
   .project-grid {
     grid-template-columns: 1fr;
   }
@@ -281,14 +399,14 @@
 }
 .process-header span {
   color: #f08a24;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   letter-spacing: 0.25em;
   font-weight: 500;
 }
 
 .process-header h2 {
   font-family: "Playfair Display", serif;
-  font-size: 2.4rem;
+  font-size: 2.8rem;
   margin-top: 1.5vh;
   color: #1a1a1a;
 }
@@ -297,8 +415,8 @@
   max-width: 45%;
   margin: 2vh auto 5vh;
   font-size: 0.95rem;
-  color: #666;
-  line-height: 1.6;
+  color: #555;
+  line-height: 1.7;
 }
 .process-grid {
   display: grid;
@@ -316,7 +434,7 @@
 }
 
 .process-card:hover {
-  border-color: #f08a24;
+  /* border-color: #f08a24; */
   background: #fff;
 }
 .process-card h4 {
@@ -329,17 +447,26 @@
 
 .process-card p {
   font-size: 0.9rem;
-  color: #666;
-  line-height: 1.5;
+  color: #555;
+  line-height: 1.7;
   margin-bottom: 0%;
 }
 @media (max-width: 64em) {
+  .process-header span {
+  color: #f08a24;
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+}
   .process-header p {
     max-width: 65%;
   }
 }
 
 @media (max-width: 40em) {
+  .process-header span {
+  color: #f08a24;
+  font-size: 0.8rem;
+}
   .process-header h2 {
     font-size: 2rem;
   }
@@ -355,12 +482,18 @@
 ================================ */
 /* ===== Luxury Centered Carousel ===== */
 
+.project-section{
+  padding-top: 7vh;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
 .project-carousel {
   width: 100%;
   overflow: hidden;
   position: relative;
   padding: 10vh 0;
-  padding-top: 5vh;
+  padding-top: 0vh;
   background: #ffffff;
 }
 
@@ -405,6 +538,7 @@
 
 .carousel-info h3 {
   color: #000;
+  margin: 0%;
 }
 
 /* Positioning like your reference image */
