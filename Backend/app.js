@@ -1,65 +1,50 @@
+import dotenv from "dotenv";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+dotenv.config({ path: path.join(__dirname, ".env") });
+
 import express from "express";
 import cors from "cors";
-import dotenv from "dotenv";
-import formRouter from "./form.js";
-
-// ✅ Load environment variables (works locally + production)
-dotenv.config();
+import formRoute from "./form.js";
 
 const app = express();
 
-// ✅ Middlewares
 app.use(cors({
-  origin: function (origin, callback) {
-    const allowed = [
-      "https://trambak.app",
-      "https://www.trambak.app",
-      "https://280408b2.trimbak.pages.dev", 
-    ];
-    if (!origin || allowed.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  methods: ["GET", "POST", "OPTIONS"],
-  allowedHeaders: ["Content-Type"],
+  origin: process.env.CORS_ORIGIN || "http://localhost:5173",
+  credentials: true,
 }));
 
-app.options("*", cors());
-app.use(express.json({ limit: "10kb" }));
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json({ limit: "10mb" }));
+app.use(express.urlencoded({ limit: "10mb", extended: true }));
 
-
-app.get("/", (req, res) => {
-  res.status(200).send("OK");
-});
- 
-// ✅ Health check (used by ELB / EB)
 app.get("/health", (req, res) => {
-  res.status(200).json({ status: "ok" });
+  res.json({ status: "Server is running" });
 });
 
-// ✅ Routes
-app.use("/api", formRouter);
-// ✅ Request logger (for debugging)
-app.use((req, res, next) => {
-  console.log(req.method, req.url);
-  next();
-});
-// ✅ Global error handler (prevents silent 500 crashes)
-app.use((err, req, res, next) => {
-  console.error("GLOBAL ERROR:", err);
-  res.status(500).json({
+app.use("/api", formRoute);
+
+app.use((req, res) => {
+  res.status(404).json({
     success: false,
-    message: "Internal Server Error",
-    error: err.message,
+    message: "Route not found",
   });
 });
 
-const PORT = process.env.PORT || 8080;
+app.use((err, req, res, next) => {
+  console.error("Unhandled error:", err);
+  res.status(err.status || 500).json({
+    success: false,
+    message: "Internal server error",
+    error: process.env.NODE_ENV === "development" ? err.message : undefined,
+  });
+});
 
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-  console.log("EMAIL_USER:", process.env.EMAIL_USER ? "Loaded" : "Missing");
+  console.log(`✓ Server running on http://localhost:${PORT}`);
+  console.log(`✓ Environment: ${process.env.NODE_ENV || "development"}`);
 });
