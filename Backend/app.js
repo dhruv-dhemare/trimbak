@@ -14,7 +14,7 @@ app.use(cors({
     const allowed = [
       "https://trambak.app",
       "https://www.trambak.app",
-      "https://280408b2.trimbak.pages.dev", // add this
+      "https://280408b2.trimbak.pages.dev", 
     ];
     if (!origin || allowed.includes(origin)) {
       callback(null, true);
