@@ -61,5 +61,5 @@ const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
-  console.log("MAIL_USER:", process.env.MAIL_USER ? "Loaded" : "Missing");
+  console.log("EMAIL_USER:", process.env.EMAIL_USER ? "Loaded" : "Missing");
 });

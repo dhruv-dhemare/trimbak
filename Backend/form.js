@@ -10,8 +10,8 @@ const transporter = nodemailer.createTransport({
   port: 587,
   secure: false,
   auth: {
-    user: process.env.MAIL_USER,
-    pass: process.env.MAIL_PASS,
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASSWORD,
   },
 });
 
@@ -39,12 +39,12 @@ router.post(
       const { name, email, message } = req.body;
 
       // ✅ Debug (remove later if you want)
-      console.log("MAIL_USER:", process.env.MAIL_USER ? "Loaded" : "Missing");
+      console.log("EMAIL_USER:", process.env.EMAIL_USER ? "Loaded" : "Missing");
 
       // ✅ Email content
       const mailOptions = {
-        from: process.env.MAIL_USER,
-        to: process.env.MAIL_USER,
+        from: process.env.EMAIL_USER,
+        to: process.env.RECEIVER_EMAIL || process.env.EMAIL_USER,
         subject: "New Contact Form Submission",
         html: `
           <h3>New Message from Website</h3>
@@ -56,15 +56,19 @@ router.post(
 
       // ✅ Send email
       try {
-      await transporter.sendMail(mailOptions);
-    } catch (e) {
-      console.error("Mail failed:", e);
-    }
-
-      res.status(200).json({
-        success: true,
-        message: "Form submitted successfully",
-      });
+        await transporter.sendMail(mailOptions);
+        res.status(200).json({
+          success: true,
+          message: "Form submitted successfully",
+        });
+      } catch (e) {
+        console.error("Mail failed:", e);
+        return res.status(500).json({
+          success: false,
+          message: "Failed to send email. Please try again later.",
+          error: e.message,
+        });
+      }
     } catch (err) {
       console.error("FORM ERROR:", err);
       next(err); // handled by global error handler in app.js
