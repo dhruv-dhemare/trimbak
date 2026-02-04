@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 import path from "path";
 import { fileURLToPath } from "url";
 import express from "express";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 import { body, validationResult } from "express-validator";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -11,31 +11,7 @@ const __dirname = path.dirname(__filename);
 dotenv.config({ path: path.join(__dirname, ".env") });
 
 const router = express.Router();
-
-
-// const createTransporter = () => {
-//   return nodemailer.createTransport({
-//     service: process.env.EMAIL_SERVICE || "gmail",
-//     auth: {
-//       user: process.env.EMAIL_USER,
-//       pass: process.env.EMAIL_PASSWORD,
-//     },
-//   });
-// };
-// console.log("EMAIL_USER =", process.env.EMAIL_USER);
-// console.log("EMAIL_PASSWORD =", process.env.EMAIL_PASSWORD ? "LOADED" : "MISSING");
-
-const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 465,
-  secure: true,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASSWORD,
-  },
-});
-const createTransporter = () => transporter;
-
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const validateFormSubmission = [
   body("name")
@@ -61,11 +37,6 @@ const validateFormSubmission = [
     .withMessage("Message must be between 0 and 5000 characters"),
 ];
 
-/**
- * Format email body with submitted data
- * @param {Object} data - Form submission data
- * @returns {string} Formatted email body
- */
 const formatEmailBody = ({ name, phno, email, message }) => {
   return `
 This person showed interest in connecting with you via the contact form.
@@ -76,17 +47,7 @@ Message: ${message}
   `.trim();
 };
 
-/**
- * POST /api/form - Handle contact form submission
- * @route POST /api/form
- * @param {string} name - Sender's name
- * @param {string} email - Sender's email
- * @param {string} phno - Sender's phone number
- * @param {string} message - Contact message
- * @returns {Object} Success status and confirmation
- */
 router.post("/form", validateFormSubmission, async (req, res) => {
-  // Check validation errors
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({
@@ -102,20 +63,13 @@ router.post("/form", validateFormSubmission, async (req, res) => {
   const { name, phno, email, message } = req.body;
 
   try {
-    const transporter = createTransporter();
-
-    
-    await transporter.verify();
-
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
+    await resend.emails.send({
+      from: "Trambak <noreply@trambak.app>",
       to: process.env.RECEIVER_EMAIL,
+      reply_to: email,
       subject: `New Form Submission from ${name}`,
       text: formatEmailBody({ name, phno, email, message }),
-      replyTo: email,
-    };
-
-    await transporter.sendMail(mailOptions);
+    });
 
     return res.status(200).json({
       success: true,
