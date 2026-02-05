@@ -4,7 +4,11 @@ import "./Home.css";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import project from "../assets/vatsala_chs.png";
+
+import bodh_classic from "../assets/bodh_classic.png";
+import nisarg_apt from "../assets/nisarg_apt.png";
+import sneha_residency from "../assets/sneha_residency.png";
+import vatsala_chs from "../assets/vatsala_chs.png";
 import {
   Home as HomeIcon,
   Building2,
@@ -19,14 +23,14 @@ const Home = () => {
   const navigate = useNavigate();
 
   const projectData = [
-    { name: "Sai Shivam", location: "Navlakh Umbre" },
-    { name: "Vatsala CHS", location: "Kothrud, Pune" },
-    { name: "Dyansai Vihar", location: "Alandi Road, Pune" },
-    { name: "Sneha Residency", location: "Vadgaonsheri, Pune" },
-    { name: "BODH Asha Apartment", location: "Kharadi, Pune" },
-    { name: "Nisarg Apartment", location: "Talegaon Dabhade" },
-    { name: "Apex Residency", location: "Talegaon Dabhade" },
-    { name: "BODH Classic", location: "Talegaon Dabhade" },
+    { name: "Sai Shivam", location: "Navlakh Umbre", img: vatsala_chs },
+    { name: "Vatsala CHS", location: "Kothrud, Pune", img: vatsala_chs  },
+    { name: "Dyansai Vihar", location: "Alandi Road, Pune", img: vatsala_chs  },
+    { name: "Sneha Residency", location: "Vadgaonsheri, Pune", img: sneha_residency },
+    { name: "BODH Asha Apartment", location: "Kharadi, Pune", img: bodh_classic },
+    { name: "Nisarg Apartment", location: "Talegaon Dabhade", img: nisarg_apt },
+    { name: "Apex Residency", location: "Talegaon Dabhade", img: vatsala_chs  },
+    { name: "BODH Classic", location: "Talegaon Dabhade", img: bodh_classic  },
   ];
 
   const total = projectData.length;
@@ -165,7 +169,7 @@ const Home = () => {
                 onClick={() => navigate("/projects")}
                 style={{ cursor: "pointer" }}
               >
-                <img src={project} alt={item.name} />
+                <img src={item.img} alt={item.name} />
                 <div className="carousel-info">
                   <h3>{item.name}</h3>
                   <span>{item.location}</span>
